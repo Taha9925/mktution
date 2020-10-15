@@ -12,7 +12,7 @@ class Tutor_login extends CI_Controller {
 		}
 	}
 
-	public function index()
+	public function index()	
 	{
 		$post = $this->input->post();
 
@@ -24,15 +24,34 @@ class Tutor_login extends CI_Controller {
 				'status'=>'Active'
 			]);
 
-			$this->session->set_userdata('tutor', $tutor);
+			if($tutor) {
 
-			redirect($this->url.'/dashboard');
+				$this->session->set_userdata('tutor', $tutor[0]);
+
+				$this->session->set_flashdata('notification', ['type'=>'success', 'message'=>'Logged in successfully!']);
+
+				redirect($this->url.'/dashboard');
+
+			} else {
+
+				$this->session->set_flashdata('notification', ['type'=>'danger', 'message'=>'Invalid username or password!']);
+
+				redirect($this->url);
+
+			}
 
 		}
 
 		$view['title'] = 'Tutor Login';
 
 		$this->load->view('tutor/index', $view);
+	}
+
+	public function logout() 
+	{
+		$this->session->sess_destroy();
+
+		redirect($this->url);
 	}
 
 }

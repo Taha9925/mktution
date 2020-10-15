@@ -57,4 +57,11 @@ $route['translate_uri_dashes'] = FALSE;
 $route[PROJECT_TUTOR_URL] = 'tutor/tutor_login/index';
 $route[PROJECT_TUTOR_URL.'/dashboard'] = 'tutor/tutor_dashboard/index';
 $route[PROJECT_TUTOR_URL.'/logout'] = 'tutor/tutor_dashboard/logout';
+
+$route[PROJECT_TUTOR_URL.'/master-data/academics'] = 'tutor/tutor_masterdata/academics';
+$route[PROJECT_TUTOR_URL.'/master-data/academics/create'] = 'tutor/tutor_masterdata/academics_create';
+$route[PROJECT_TUTOR_URL.'/master-data/academics/edit/(:any)'] = 'tutor/tutor_masterdata/academics_edit/$1';
+
+$route[PROJECT_TUTOR_URL.'/master-data/subjects'] = 'tutor/tutor_masterdata/subjects';
+$route[PROJECT_TUTOR_URL.'/master-data/schools'] = 'tutor/tutor_masterdata/schools';
 /*Tutor Routes*/

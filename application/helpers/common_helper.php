@@ -15,3 +15,24 @@ function tutor_url() {
 	return base_url().PROJECT_TUTOR_URL.'/';
 
 }
+
+
+function dateTimeFormat($date) {
+
+    if($date==NULL) {
+        return "---";
+    } else {
+        return date('d F, Y', strtotime($date)).' | '.date('h:i A', strtotime($date));
+    }
+
+}
+
+function dateFormat($date) {
+
+    if($date==NULL) {
+        return "---";
+    } else {
+        return date('d F, Y', strtotime($date));
+    }
+
+}
